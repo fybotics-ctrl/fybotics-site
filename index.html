@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>FYBOTICS</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0a0f14;
+  --text:#e9eef5;
+  --muted:#9aa4b2;
+  --line:rgba(255,255,255,0.08);
+  --accent:#7ae7ff;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter;}
+
+body{
+  background:
+    radial-gradient(900px 500px at 20% 10%, rgba(122,231,255,0.10), transparent),
+    radial-gradient(700px 400px at 80% 30%, rgba(124,92,255,0.08), transparent),
+    var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+/* floating light layers */
+.light{
+  position:fixed;
+  width:500px;height:500px;
+  background:radial-gradient(circle, rgba(122,231,255,0.10), transparent 60%);
+  filter:blur(50px);
+  z-index:-1;
+  animation:float 16s infinite ease-in-out;
+}
+.l1{top:10%;left:5%;}
+.l2{bottom:10%;right:5%;animation-delay:4s;}
+
+@keyframes float{
+  0%,100%{transform:translateY(0px)}
+  50%{transform:translateY(40px)}
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  backdrop-filter:blur(18px);
+  background:rgba(10,15,20,0.6);
+  border-bottom:1px solid var(--line);
+  z-index:1000;
+}
+
+.nav-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 8%;
+}
+
+.nav-inner img{
+  height:28px;
+  opacity:0.95;
+}
+
+.nav-btn{
+  padding:10px 14px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,0.03);
+  color:var(--text);
+  border-radius:10px;
+  cursor:pointer;
+  transition:0.3s;
+}
+.nav-btn:hover{
+  border-color:var(--accent);
+  transform:translateY(-2px);
+}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:140px 20px 80px;
+}
+
+.hero-box{
+  max-width:900px;
+}
+
+.logo-slot{
+  width:260px;
+  height:110px;
+  margin:0 auto 30px;
+  border:1px dashed var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.logo-slot img{
+  max-width:220px;
+  max-height:90px;
+}
+
+h1{
+  font-size:44px;
+  font-weight:600;
+  letter-spacing:-0.5px;
+}
+
+p{
+  color:var(--muted);
+  line-height:1.6;
+  margin-top:14px;
+}
+
+.cta{
+  margin-top:28px;
+  display:flex;
+  gap:12px;
+  justify-content:center;
+}
+
+.primary{
+  background:linear-gradient(135deg,#7ae7ff,#7c5cff);
+  border:none;
+  color:#000;
+}
+
+/* SECTIONS */
+section{
+  padding:110px 10%;
+}
+
+.title{
+  font-size:26px;
+  margin-bottom:18px;
+}
+
+/* PRODUCT SYSTEM (engineering layout, not SaaS cards) */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:22px;
+}
+
+.product{
+  border:1px solid var(--line);
+  padding:18px;
+  border-radius:16px;
+  background:rgba(255,255,255,0.03);
+  transition:0.4s;
+  opacity:0;
+  transform:translateY(30px);
+}
+
+.product.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.product:hover{
+  transform:translateY(-6px);
+  border-color:rgba(122,231,255,0.35);
+}
+
+.product img{
+  width:100%;
+  height:170px;
+  object-fit:cover;
+  border-radius:12px;
+  margin-bottom:12px;
+}
+
+/* APPLICATION CARDS */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:18px;
+}
+
+.card{
+  border:1px solid var(--line);
+  padding:18px;
+  border-radius:14px;
+  background:rgba(255,255,255,0.02);
+  transition:0.3s;
+}
+.card:hover{
+  transform:translateY(-5px);
+  border-color:var(--accent);
+}
+
+/* WHY FYBOTICS */
+.pillars{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+}
+
+.pillar{
+  padding:18px;
+  border-radius:14px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,0.02);
+  opacity:0;
+  transform:translateY(25px);
+}
+
+.pillar.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* MEDIA */
+.masonry{
+  column-count:3;
+  column-gap:12px;
+}
+
+.masonry div{
+  height:160px;
+  margin-bottom:12px;
+  border-radius:12px;
+  background:rgba(255,255,255,0.03);
+  border:1px solid var(--line);
+  break-inside:avoid;
+}
+
+/* CONTACT */
+form{
+  max-width:600px;
+  display:grid;
+  gap:12px;
+}
+
+input,textarea{
+  padding:12px;
+  border-radius:10px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,0.02);
+  color:white;
+}
+
+footer{
+  padding:40px 10%;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+}
+
+/* reveal */
+.reveal{
+  opacity:0;
+  transform:translateY(35px);
+  transition:1s ease;
+}
+.reveal.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+@media(max-width:768px){
+  h1{font-size:30px;}
+  .masonry{column-count:1;}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="light l1"></div>
+<div class="light l2"></div>
+
+<nav>
+  <div class="nav-inner">
+    <img src="https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/assets/logo.png"/>
+    <button class="nav-btn">Contact</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-box reveal">
+
+    <div class="logo-slot">
+      <img src="https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/assets/logo.png"/>
+    </div>
+
+    <h1>Engineering Intelligent Machines for the Real World</h1>
+
+    <p>
+      FYBOTICS builds affordable robotics systems and engineering solutions for education, research, and real-world deployment.
+      From hardware to embedded systems, we turn engineering ideas into working machines.
+    </p>
+
+    <div class="cta">
+      <button class="nav-btn primary">Explore Products</button>
+      <button class="nav-btn">Contact Us</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="reveal">
+  <div class="title">What is FYBOTICS?</div>
+  <p>
+    FYBOTICS is a robotics and engineering company focused on accessible robotic technologies and end-to-end engineering solutions combining mechanical design, electronics, embedded systems, and software.
+  </p>
+</section>
+
+<!-- PROBLEM -->
+<section class="reveal">
+  <div class="title">Robotics Should Be Accessible</div>
+  <p>
+    Advanced robotics is often expensive and inaccessible. FYBOTICS bridges this gap with practical, affordable engineering systems for students, startups, and research labs.
+  </p>
+</section>
+
+<!-- PRODUCTS -->
+<section>
+  <div class="title reveal">Products</div>
+
+  <div class="grid">
+
+    <div class="product">
+      <img src="https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/assets/dex-arm.png"/>
+      <h3>DEX ARM</h3>
+      <p>Humanoid finger + palm robotic system for manipulation research.</p>
+    </div>
+
+    <div class="product">
+      <img src="https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/assets/edu-robot.png"/>
+      <h3>Educational Robot</h3>
+      <p>Autonomous robotics platform for AI, SLAM, and learning systems.</p>
+    </div>
+
+    <div class="product">
+      <img src="https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/assets/semi-humanoid.png"/>
+      <h3>Semi-Humanoid Robot</h3>
+      <p>Indoor service robotics platform for interaction and assistance.</p>
+    </div>
+
+    <div class="product">
+      <img src="https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/assets/services.png"/>
+      <h3>Engineering Services</h3>
+      <p>PCB design, embedded systems, firmware, CAD, robotics software.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- APPLICATIONS -->
+<section class="reveal">
+  <div class="title">Applications</div>
+
+  <div class="cards">
+    <div class="card">Education<br><small>Labs, projects, AI experiments</small></div>
+    <div class="card">Startups<br><small>Prototyping, embedded systems</small></div>
+    <div class="card">Research<br><small>HRI, control systems, robotics</small></div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="reveal">
+  <div class="title">Why FYBOTICS</div>
+  <p>Built in India for global markets. Engineering-first robotics focused on affordability and real-world usability.</p>
+
+  <div class="pillars">
+    <div class="pillar">Mechanical Engineering</div>
+    <div class="pillar">Electronics & PCB Design</div>
+    <div class="pillar">Embedded Software</div>
+    <div class="pillar">Robotics & AI</div>
+  </div>
+</section>
+
+<!-- MEDIA -->
+<section class="reveal">
+  <div class="title">Engineering In Motion</div>
+  <div class="masonry">
+    <div></div><div></div><div></div>
+    <div></div><div></div><div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="reveal">
+  <div class="title">Let's Build Something Together</div>
+
+  <form>
+    <input placeholder="Name"/>
+    <input placeholder="Email"/>
+    <input placeholder="Organization"/>
+    <textarea rows="5" placeholder="Message"></textarea>
+    <button class="nav-btn primary">Request Demo</button>
+  </form>
+
+  <p style="margin-top:20px;">
+    +91 7034918569<br>
+    info@fybotics.com<br>
+    India
+  </p>
+</section>
+
+<footer>
+  <strong>FYBOTICS</strong><br>
+  Engineering Intelligent Machines<br><br>
+  LinkedIn | Instagram | YouTube<br>
+  © 2026 FYBOTICS
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('show');
+    }
+  });
+},{threshold:0.12});
+
+document.querySelectorAll('.reveal, .product, .pillar').forEach(el=>{
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
