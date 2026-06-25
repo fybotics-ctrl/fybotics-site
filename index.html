@@ -3,7 +3,75 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>FYBOTICS</title>
+
+<title>FYBOTICS | Robotics Company in India | DEX ARM Robotic Hand</title>
+
+<meta name="description" content="FYBOTICS is an Indian robotics and engineering company building affordable robotics systems, DEX ARM 5 finger robotic hand, educational robots, PCB design, embedded systems, firmware, CAD, and robotics software solutions for students, startups, colleges, and research labs.">
+
+<meta name="keywords" content="FYBOTICS, robotics company India, robotic hand India, DEX ARM, dexterous robotic hand, 5 finger robotic hand, educational robot India, robotics projects for engineering students, PCB design India, embedded systems India, robotics software India, robotics startup India">
+
+<meta name="robots" content="index, follow">
+<meta name="author" content="FYBOTICS">
+<meta name="language" content="English">
+<meta name="geo.region" content="IN">
+<meta name="geo.placename" content="India">
+<meta name="theme-color" content="#0a0f14">
+
+<link rel="canonical" href="https://fybotics.com/">
+<link rel="icon" href="https://raw.githubusercontent.com/fybotics-ctrl/fybotics-site/main/assets/logo.png">
+
+<meta property="og:title" content="FYBOTICS | Robotics Company in India">
+<meta property="og:description" content="FYBOTICS builds affordable robotics systems, DEX ARM robotic hand, educational robots, PCB design, embedded systems, and robotics software solutions.">
+<meta property="og:image" content="https://raw.githubusercontent.com/fybotics-ctrl/fybotics-site/main/assets/dex-arm.png">
+<meta property="og:url" content="https://fybotics.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FYBOTICS">
+<meta property="og:locale" content="en_IN">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FYBOTICS | Robotics Company in India">
+<meta name="twitter:description" content="Affordable robotic systems, DEX ARM robotic hand, educational robots, PCB design, embedded systems, and robotics software solutions.">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/fybotics-ctrl/fybotics-site/main/assets/dex-arm.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "FYBOTICS",
+  "url": "https://fybotics.com/",
+  "logo": "https://raw.githubusercontent.com/fybotics-ctrl/fybotics-site/main/assets/logo.png",
+  "description": "FYBOTICS is an Indian robotics and engineering company building affordable robotic systems, educational robots, dexterous robotic hands, PCB design, embedded systems, firmware, CAD, and robotics software solutions.",
+  "email": "info@fybotics.com",
+  "telephone": "+91-7034918569",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "IN"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "India"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "DEX ARM",
+  "brand": {
+    "@type": "Brand",
+    "name": "FYBOTICS"
+  },
+  "manufacturer": {
+    "@type": "Organization",
+    "name": "FYBOTICS"
+  },
+  "description": "DEX ARM is a 5 finger dexterous robotic hand designed for robotics education, prototyping, engineering student projects, and robotic manipulation research.",
+  "image": "https://raw.githubusercontent.com/fybotics-ctrl/fybotics-site/main/assets/dex-arm.png",
+  "category": "Robotics"
+}
+</script>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -282,7 +350,7 @@ footer{
 <nav>
   <div class="nav-inner">
     <img src="https://raw.githubusercontent.com/fybotics-ctrl/fybotics-site/main/assets/logo.png"/>
-    <button class="nav-btn">Contact</button>
+    <button class="nav-btn" onclick="scrollToSection('contact')">Contact</button>
   </div>
 </nav>
 
@@ -302,8 +370,8 @@ footer{
     </p>
 
     <div class="cta">
-      <button class="nav-btn primary">Explore Products</button>
-      <button class="nav-btn">Contact Us</button>
+      <button class="nav-btn primary" onclick="scrollToSection('products')">Explore Products</button>
+      <button class="nav-btn" onclick="scrollToSection('contact')">Contact Us</button>
     </div>
 
   </div>
@@ -326,7 +394,7 @@ footer{
 </section>
 
 <!-- PRODUCTS -->
-<section>
+<section id="products">
   <div class="title reveal">Products</div>
 
   <div class="grid">
@@ -392,15 +460,15 @@ footer{
 </section>
 
 <!-- CONTACT -->
-<section class="reveal">
+<section id="contact" class="reveal">
   <div class="title">Let's Build Something Together</div>
 
-  <form>
-    <input placeholder="Name"/>
-    <input placeholder="Email"/>
-    <input placeholder="Organization"/>
-    <textarea rows="5" placeholder="Message"></textarea>
-    <button class="nav-btn primary">Request Demo</button>
+  <form action="mailto:info@fybotics.com" method="post" enctype="text/plain">
+    <input name="name" placeholder="Name"/>
+    <input name="email" type="email" placeholder="Email"/>
+    <input name="organization" placeholder="Organization"/>
+    <textarea name="message" rows="5" placeholder="Message"></textarea>
+    <button type="submit" class="nav-btn primary">Request Demo</button>
   </form>
 
   <p style="margin-top:20px;">
@@ -418,6 +486,13 @@ footer{
 </footer>
 
 <script>
+function scrollToSection(id){
+  const section = document.getElementById(id);
+  if(section){
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
 const observer = new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
