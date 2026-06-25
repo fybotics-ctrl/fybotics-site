@@ -7,9 +7,7 @@
 <title>FYBOTICS | Robotics Company in India | DEX ARM Robotic Hand</title>
 
 <meta name="description" content="FYBOTICS is an Indian robotics and engineering company building affordable robotics systems, DEX ARM 5 finger robotic hand, educational robots, PCB design, embedded systems, firmware, CAD, and robotics software solutions for students, startups, colleges, and research labs.">
-
 <meta name="keywords" content="FYBOTICS, robotics company India, robotic hand India, DEX ARM, dexterous robotic hand, 5 finger robotic hand, educational robot India, robotics projects for engineering students, PCB design India, embedded systems India, robotics software India, robotics startup India">
-
 <meta name="robots" content="index, follow">
 <meta name="author" content="FYBOTICS">
 <meta name="language" content="English">
@@ -18,11 +16,14 @@
 <meta name="theme-color" content="#0a0f14">
 
 <link rel="canonical" href="https://fybotics.com/">
-<link rel="icon" href="https://raw.githubusercontent.com/fybotics-ctrl/fybotics-site/main/assets/logo.png">
+
+<!-- FAVICON PATH -->
+<link rel="icon" type="image/png" href="assets/favicon.png?v=1">
+<link rel="apple-touch-icon" href="assets/favicon.png?v=1">
 
 <meta property="og:title" content="FYBOTICS | Robotics Company in India">
 <meta property="og:description" content="FYBOTICS builds affordable robotics systems, DEX ARM robotic hand, educational robots, PCB design, embedded systems, and robotics software solutions.">
-<meta property="og:image" content="https://raw.githubusercontent.com/fybotics-ctrl/fybotics-site/main/assets/dex-arm.png">
+<meta property="og:image" content="https://fybotics.com/assets/dex-arm.png">
 <meta property="og:url" content="https://fybotics.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="FYBOTICS">
@@ -31,7 +32,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="FYBOTICS | Robotics Company in India">
 <meta name="twitter:description" content="Affordable robotic systems, DEX ARM robotic hand, educational robots, PCB design, embedded systems, and robotics software solutions.">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/fybotics-ctrl/fybotics-site/main/assets/dex-arm.png">
+<meta name="twitter:image" content="https://fybotics.com/assets/dex-arm.png">
 
 <script type="application/ld+json">
 {
@@ -39,7 +40,7 @@
   "@type": "Organization",
   "name": "FYBOTICS",
   "url": "https://fybotics.com/",
-  "logo": "https://raw.githubusercontent.com/fybotics-ctrl/fybotics-site/main/assets/logo.png",
+  "logo": "https://fybotics.com/assets/logo.png",
   "description": "FYBOTICS is an Indian robotics and engineering company building affordable robotic systems, educational robots, dexterous robotic hands, PCB design, embedded systems, firmware, CAD, and robotics software solutions.",
   "email": "info@fybotics.com",
   "telephone": "+91-7034918569",
@@ -68,7 +69,7 @@
     "name": "FYBOTICS"
   },
   "description": "DEX ARM is a 5 finger dexterous robotic hand designed for robotics education, prototyping, engineering student projects, and robotic manipulation research.",
-  "image": "https://raw.githubusercontent.com/fybotics-ctrl/fybotics-site/main/assets/dex-arm.png",
+  "image": "https://fybotics.com/assets/dex-arm.png",
   "category": "Robotics"
 }
 </script>
@@ -84,7 +85,16 @@
   --accent:#7ae7ff;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter;}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Inter, system-ui, sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   background:
@@ -95,27 +105,42 @@ body{
   overflow-x:hidden;
 }
 
-/* floating light layers */
 .light{
   position:fixed;
-  width:500px;height:500px;
+  width:500px;
+  height:500px;
   background:radial-gradient(circle, rgba(122,231,255,0.10), transparent 60%);
   filter:blur(50px);
   z-index:-1;
   animation:float 16s infinite ease-in-out;
 }
-.l1{top:10%;left:5%;}
-.l2{bottom:10%;right:5%;animation-delay:4s;}
+
+.l1{
+  top:10%;
+  left:5%;
+}
+
+.l2{
+  bottom:10%;
+  right:5%;
+  animation-delay:4s;
+}
 
 @keyframes float{
-  0%,100%{transform:translateY(0px)}
-  50%{transform:translateY(40px)}
+  0%,100%{
+    transform:translateY(0px);
+  }
+  50%{
+    transform:translateY(40px);
+  }
 }
 
 /* NAV */
 nav{
   position:fixed;
-  top:0;left:0;right:0;
+  top:0;
+  left:0;
+  right:0;
   backdrop-filter:blur(18px);
   background:rgba(10,15,20,0.6);
   border-bottom:1px solid var(--line);
@@ -130,7 +155,8 @@ nav{
 }
 
 .nav-inner img{
-  height:28px;
+  height:42px;
+  width:auto;
   opacity:0.95;
 }
 
@@ -143,9 +169,16 @@ nav{
   cursor:pointer;
   transition:0.3s;
 }
+
 .nav-btn:hover{
   border-color:var(--accent);
   transform:translateY(-2px);
+}
+
+.primary{
+  background:linear-gradient(135deg,#7ae7ff,#7c5cff);
+  border:none;
+  color:#000;
 }
 
 /* HERO */
@@ -163,18 +196,18 @@ nav{
 }
 
 .logo-slot{
-  width:260px;
-  height:110px;
-  margin:0 auto 30px;
-  border:1px dashed var(--line);
+  width:390px;
+  height:165px;
+  margin:0 auto 40px;
   display:flex;
   align-items:center;
   justify-content:center;
 }
 
 .logo-slot img{
-  max-width:220px;
-  max-height:90px;
+  width:100%;
+  height:100%;
+  object-fit:contain;
 }
 
 h1{
@@ -196,12 +229,6 @@ p{
   justify-content:center;
 }
 
-.primary{
-  background:linear-gradient(135deg,#7ae7ff,#7c5cff);
-  border:none;
-  color:#000;
-}
-
 /* SECTIONS */
 section{
   padding:110px 10%;
@@ -212,7 +239,7 @@ section{
   margin-bottom:18px;
 }
 
-/* PRODUCT SYSTEM (engineering layout, not SaaS cards) */
+/* PRODUCTS */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -247,7 +274,7 @@ section{
   margin-bottom:12px;
 }
 
-/* APPLICATION CARDS */
+/* APPLICATIONS */
 .cards{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -261,6 +288,7 @@ section{
   background:rgba(255,255,255,0.02);
   transition:0.3s;
 }
+
 .card:hover{
   transform:translateY(-5px);
   border-color:var(--accent);
@@ -271,6 +299,7 @@ section{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:16px;
+  margin-top:24px;
 }
 
 .pillar{
@@ -280,6 +309,7 @@ section{
   background:rgba(255,255,255,0.02);
   opacity:0;
   transform:translateY(25px);
+  transition:0.4s;
 }
 
 .pillar.show{
@@ -293,13 +323,24 @@ section{
   column-gap:12px;
 }
 
-.masonry div{
+.media-tile{
   height:160px;
   margin-bottom:12px;
   border-radius:12px;
   background:rgba(255,255,255,0.03);
   border:1px solid var(--line);
   break-inside:avoid;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--muted);
+  font-size:14px;
+  transition:0.3s;
+}
+
+.media-tile:hover{
+  transform:translateY(-4px);
+  border-color:rgba(122,231,255,0.35);
 }
 
 /* CONTACT */
@@ -309,12 +350,19 @@ form{
   gap:12px;
 }
 
-input,textarea{
+input,
+textarea{
   padding:12px;
   border-radius:10px;
   border:1px solid var(--line);
   background:rgba(255,255,255,0.02);
   color:white;
+  outline:none;
+}
+
+input:focus,
+textarea:focus{
+  border-color:rgba(122,231,255,0.45);
 }
 
 footer{
@@ -323,22 +371,55 @@ footer{
   color:var(--muted);
 }
 
-/* reveal */
+/* REVEAL */
 .reveal{
   opacity:0;
   transform:translateY(35px);
   transition:1s ease;
 }
+
 .reveal.show{
   opacity:1;
   transform:translateY(0);
 }
 
 @media(max-width:768px){
-  h1{font-size:30px;}
-  .masonry{column-count:1;}
-}
+  .nav-inner{
+    padding:12px 6%;
+  }
 
+  .nav-inner img{
+    height:34px;
+  }
+
+  h1{
+    font-size:30px;
+  }
+
+  section{
+    padding:80px 7%;
+  }
+
+  .logo-slot{
+    width:292px;
+    height:124px;
+    margin-bottom:30px;
+  }
+
+  .cta{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .nav-btn{
+    width:100%;
+    max-width:260px;
+  }
+
+  .masonry{
+    column-count:1;
+  }
+}
 </style>
 </head>
 
@@ -349,17 +430,16 @@ footer{
 
 <nav>
   <div class="nav-inner">
-    <img src="https://raw.githubusercontent.com/fybotics-ctrl/fybotics-site/main/assets/logo.png"/>
+    <img src="assets/logo.png?v=1" alt="FYBOTICS Logo">
     <button class="nav-btn" onclick="scrollToSection('contact')">Contact</button>
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-box reveal">
 
     <div class="logo-slot">
-      <img src="https://raw.githubusercontent.com/fybotics-ctrl/fybotics-site/main/assets/logo.png"/>
+      <img src="assets/logo.png?v=1" alt="FYBOTICS Logo">
     </div>
 
     <h1>Engineering Intelligent Machines for the Real World</h1>
@@ -377,7 +457,6 @@ footer{
   </div>
 </section>
 
-<!-- INTRO -->
 <section class="reveal">
   <div class="title">What is FYBOTICS?</div>
   <p>
@@ -385,7 +464,6 @@ footer{
   </p>
 </section>
 
-<!-- PROBLEM -->
 <section class="reveal">
   <div class="title">Robotics Should Be Accessible</div>
   <p>
@@ -393,54 +471,66 @@ footer{
   </p>
 </section>
 
-<!-- PRODUCTS -->
 <section id="products">
   <div class="title reveal">Products</div>
 
   <div class="grid">
 
     <div class="product">
-      <img src="https://raw.githubusercontent.com/fybotics-ctrl/fybotics-site/main/assets/dex-arm.png"/>
+      <img src="assets/dex-arm.png?v=1" alt="DEX ARM robotic hand">
       <h3>DEX ARM</h3>
-      <p>Humanoid finger + palm robotic system for manipulation research.</p>
+      <p>Humanoid finger + palm robotic system for manipulation research. No camera support.</p>
     </div>
 
     <div class="product">
-      <img src="https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/assets/edu-robot.png"/>
+      <img src="assets/edu-robot.png?v=1" alt="Educational robotics platform">
       <h3>Educational Robot</h3>
-      <p>Autonomous robotics platform for AI, SLAM, and learning systems.</p>
+      <p>Autonomous robotics platform for AI, SLAM, computer vision, and robotics learning systems.</p>
     </div>
 
     <div class="product">
-      <img src="https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/assets/semi-humanoid.png"/>
+      <img src="assets/semi-humanoid.png?v=1" alt="Semi-humanoid robot">
       <h3>Semi-Humanoid Robot</h3>
-      <p>Indoor service robotics platform for interaction and assistance.</p>
+      <p>Indoor service robotics platform for interaction, assistance, and autonomous operation.</p>
     </div>
 
     <div class="product">
-      <img src="https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/assets/services.png"/>
+      <img src="assets/services.png?v=1" alt="FYBOTICS engineering services">
       <h3>Engineering Services</h3>
-      <p>PCB design, embedded systems, firmware, CAD, robotics software.</p>
+      <p>PCB design, embedded systems, firmware, CAD, electronics integration, and robotics software.</p>
     </div>
 
   </div>
 </section>
 
-<!-- APPLICATIONS -->
 <section class="reveal">
   <div class="title">Applications</div>
 
   <div class="cards">
-    <div class="card">Education<br><small>Labs, projects, AI experiments</small></div>
-    <div class="card">Startups<br><small>Prototyping, embedded systems</small></div>
-    <div class="card">Research<br><small>HRI, control systems, robotics</small></div>
+    <div class="card">
+      <h3>Education</h3>
+      <p>Robotics laboratories, final year projects, AI and ML experiments.</p>
+    </div>
+
+    <div class="card">
+      <h3>Startups</h3>
+      <p>Rapid prototyping, embedded systems, and product development.</p>
+    </div>
+
+    <div class="card">
+      <h3>Research</h3>
+      <p>Robotics experimentation, human-robot interaction, and control systems.</p>
+    </div>
   </div>
 </section>
 
-<!-- WHY -->
 <section class="reveal">
   <div class="title">Why FYBOTICS</div>
-  <p>Built in India for global markets. Engineering-first robotics focused on affordability and real-world usability.</p>
+
+  <p>
+    Built in India for global markets. FYBOTICS focuses on affordability, engineering quality, and practical innovation.
+    We believe robotics should be accessible to students, startups, researchers, and industries without compromising performance.
+  </p>
 
   <div class="pillars">
     <div class="pillar">Mechanical Engineering</div>
@@ -450,24 +540,27 @@ footer{
   </div>
 </section>
 
-<!-- MEDIA -->
 <section class="reveal">
   <div class="title">Engineering In Motion</div>
+
   <div class="masonry">
-    <div></div><div></div><div></div>
-    <div></div><div></div><div></div>
+    <div class="media-tile">Product Renders</div>
+    <div class="media-tile">CAD Models</div>
+    <div class="media-tile">PCB Designs</div>
+    <div class="media-tile">Simulations</div>
+    <div class="media-tile">Motion Demos</div>
+    <div class="media-tile">Prototype Photos</div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact" class="reveal">
   <div class="title">Let's Build Something Together</div>
 
   <form action="mailto:info@fybotics.com" method="post" enctype="text/plain">
-    <input name="name" placeholder="Name"/>
-    <input name="email" type="email" placeholder="Email"/>
-    <input name="organization" placeholder="Organization"/>
-    <textarea name="message" rows="5" placeholder="Message"></textarea>
+    <input name="name" placeholder="Name" required>
+    <input name="email" type="email" placeholder="Email" required>
+    <input name="organization" placeholder="Organization">
+    <textarea name="message" rows="5" placeholder="Message" required></textarea>
     <button type="submit" class="nav-btn primary">Request Demo</button>
   </form>
 
@@ -494,9 +587,9 @@ function scrollToSection(id){
 }
 
 const observer = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add('show');
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
     }
   });
 },{threshold:0.12});
